@@ -2,7 +2,9 @@
 #include <iostream>
 #include <string>
 
-Zombie::Zombie(std::string name) : name(name) {}
+Zombie::Zombie() {
+	std::cout << "Noname zombie created" << std::endl;
+}
 
 Zombie::~Zombie() {
     std::cout << name << " is destroyed" << std::endl;
@@ -11,3 +13,5 @@ Zombie::~Zombie() {
 void Zombie::announce() const {
     std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
+void Zombie::setName (std::string name) { this->name = name; };
+
