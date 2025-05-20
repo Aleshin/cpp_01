@@ -1,10 +1,11 @@
 NAME = zombie
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g -m64
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g -m64 -MMD
 
 SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJS = $(SRCS:.cpp=.o)
+DEPS = $(OBJS:.o=.d)
 
 all: $(NAME)
 
@@ -14,8 +15,10 @@ $(NAME): $(OBJS)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+-include $(DEPS)
+
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(DEPS)
 
 fclean: clean
 	rm -f $(NAME)
