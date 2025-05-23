@@ -1,7 +1,7 @@
 #include "Weapon.hpp"
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) : name(name), weapon(nullptr) {
+HumanB::HumanB(std::string name) : name(name), weapon(NULL) {
 	std::cout << "HumanB " << name << " created" << std::endl;
 }
 HumanB::~HumanB() {
